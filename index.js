@@ -13,10 +13,34 @@ const suma = (req, res) => {
     var sumando2 = Number(req.query.parametro2)
     var resultado = sumando1 + sumando2
     
-    res.send(`SUMA: ${sumando1} + ${sumando2} = ${resultado}`)
+    res.send(`${resultado}`)
+}
+const multiplica = (req, res) => {
+    var sumando1 = Number(req.query.parametro1)
+    var sumando2 = Number(req.query.parametro2)
+    var resultado = sumando1 * sumando2
+    
+    res.send(`${resultado}`)
+}
+const divide = (req, res) => {
+    var sumando1 = Number(req.query.parametro1)
+    var sumando2 = Number(req.query.parametro2)
+    var resultado = sumando1 / sumando2
+    
+    res.send(`${resultado}`)
+}
+const resta = (req, res) => {
+    var sumando1 = Number(req.query.parametro1)
+    var sumando2 = Number(req.query.parametro2)
+    var resultado = sumando1 - sumando2
+    
+    res.send(`${resultado}`)
 }
 
-calculadoraBackend.get("/calculo", suma)
+calculadoraBackend.get("/suma", suma)
+calculadoraBackend.get("/multiplica", multiplica)
+calculadoraBackend.get("/divide", divide)
+calculadoraBackend.get("/resta", resta)
 
 calculadoraBackend.listen(port, () => {
     console.log(`Calculadora escuchando en http://localhost:${port}`)

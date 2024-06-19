@@ -5,24 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Frontend</title>
     <script>
-        function realizarCalculo() {
+        function suma() {
             // Obtener valores de los inputs
             const input1 = document.getElementById('input1').value;
             const input2 = document.getElementById('input2').value;
 
             // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/calculo?parametro1=${input1}&parametro2=${input2}`;
+            const url = `http://localhost:3000/suma?parametro1=${input1}&parametro2=${input2}`;
+
 
             // Realizar la solicitud al backend
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
                     // Poner el resultado en el campo de output
-                    document.getElementById('output').value = data;
+                    document.getElementById('output1').value = data;
                 })
                 .catch(error => console.error('Error al realizar la solicitud:', error));
         }
-    </script>
+        function multiplica() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/multiplica?parametro1=${input1}&parametro2=${input2}`;
+
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('output2').value = data;
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+        function (divide) {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/divide?parametro1=${input1}&parametro2=${input2}`;
+
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('output3').value = data;
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+        function resta() {
+            // Obtener valores de los inputs
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Construir la URL para la solicitud al backend
+            const url = `http://localhost:3000/resta?parametro1=${input1}&parametro2=${input2}`;
+
+
+            // Realizar la solicitud al backend
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Poner el resultado en el campo de output
+                    document.getElementById('output4').value = data;
+                })
+                .catch(error => console.error('Error al realizar la solicitud:', error));
+        }
+            </script>
 </head>
 <body>
     <div>
@@ -30,45 +85,37 @@
         <input type="text" id="input1" name="input1">
         <label for="input2">Input 2:</label>
         <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output:</label>
-        <input type="text" id="output" name="output" readonly>
+        <button onclick="suma()">Calcular</button>
+        <label for="output1">Output:</label>
+        <input type="text" id="output1" name="output" readonly>
     </div>
     <div>
         <label for="input1">Input 1:</label>
         <input type="text" id="input1" name="input1">
         <label for="input2">Input 2:</label>
         <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output:</label>
-        <input type="text" id="output" name="output" readonly>
+        <button onclick="multiplica()">Calcular</button>
+        <label for="output2">Output:</label>
+        <input type="text" id="output2" name="output" readonly>
     </div>
     <div>
         <label for="input1">Input 1:</label>
         <input type="text" id="input1" name="input1">
         <label for="input2">Input 2:</label>
         <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output:</label>
-        <input type="text" id="output" name="output" readonly>
+        <button onclick="divide()">Calcular</button>
+        <label for="output3">Output:</label>
+        <input type="text" id="output3" name="output" readonly>
     </div>
     <div>
         <label for="input1">Input 1:</label>
         <input type="text" id="input1" name="input1">
         <label for="input2">Input 2:</label>
         <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output:</label>
-        <input type="text" id="output" name="output" readonly>
+        <button onclick="resta()">Calcular</button>
+        <label for="output4">Output:</label>
+        <input type="text" id="output4" name="output" readonly>
     </div>
-    <div>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1" name="input1">
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2" name="input2">
-        <button onclick="realizarCalculo()">Calcular</button>
-        <label for="output">Output:</label>
-        <input type="text" id="output" name="output" readonly>
-    </div>
+   
 </body>
 </html>
