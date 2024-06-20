@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Frontend</title>
+
     <script>
-        function suma() {
+        function operacion(v) {
             // Obtener valores de los inputs
             const input1 = document.getElementById('input1').value;
             const input2 = document.getElementById('input2').value;
+            const input3 = document.getElementById('input3').value;
 
             // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/suma?parametro1=${input1}&parametro2=${input2}`;
+            const url = `http://localhost:3000/operacion?parametro1=${input1}&parametro2=${input2}&parametro3=${input3}`;
 
 
             // Realizar la solicitud al backend
@@ -19,103 +22,45 @@
                 .then(response => response.text())
                 .then(data => {
                     // Poner el resultado en el campo de output
-                    document.getElementById('output1').value = data;
+                    document.getElementById('output').value = data;
                 })
                 .catch(error => console.error('Error al realizar la solicitud:', error));
         }
-        function multiplica() {
-            // Obtener valores de los inputs
-            const input1 = document.getElementById('input1').value;
-            const input2 = document.getElementById('input2').value;
 
-            // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/multiplica?parametro1=${input1}&parametro2=${input2}`;
-
-
-            // Realizar la solicitud al backend
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    // Poner el resultado en el campo de output
-                    document.getElementById('output2').value = data;
-                })
-                .catch(error => console.error('Error al realizar la solicitud:', error));
-        }
-        function (divide) {
-            // Obtener valores de los inputs
-            const input1 = document.getElementById('input1').value;
-            const input2 = document.getElementById('input2').value;
-
-            // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/divide?parametro1=${input1}&parametro2=${input2}`;
-
-
-            // Realizar la solicitud al backend
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    // Poner el resultado en el campo de output
-                    document.getElementById('output3').value = data;
-                })
-                .catch(error => console.error('Error al realizar la solicitud:', error));
-        }
-        function resta() {
-            // Obtener valores de los inputs
-            const input1 = document.getElementById('input1').value;
-            const input2 = document.getElementById('input2').value;
-
-            // Construir la URL para la solicitud al backend
-            const url = `http://localhost:3000/resta?parametro1=${input1}&parametro2=${input2}`;
-
-
-            // Realizar la solicitud al backend
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    // Poner el resultado en el campo de output
-                    document.getElementById('output4').value = data;
-                })
-                .catch(error => console.error('Error al realizar la solicitud:', error));
-        }
-            </script>
+    </script>
 </head>
+
 <body>
     <div>
         <label for="input1">Input 1:</label>
         <input type="text" id="input1" name="input1">
         <label for="input2">Input 2:</label>
         <input type="text" id="input2" name="input2">
-        <button onclick="suma()">Calcular</button>
-        <label for="output1">Output:</label>
-        <input type="text" id="output1" name="output" readonly>
+        <label for="output">Output:</label>
+        <input type="text" id="output" name="output" readonly>
     </div>
+
     <div>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1" name="input1">
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2" name="input2">
-        <button onclick="multiplica()">Calcular</button>
-        <label for="output2">Output:</label>
-        <input type="text" id="output2" name="output" readonly>
+        <br>
+        <button type="button" id='input3' onclick='operacion(this.value)' value='1'>+</button>
+        <button onclick=operacion() value="">-</button>
+        <button onclick=operacion() value="">x</button>
     </div>
+
     <div>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1" name="input1">
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2" name="input2">
-        <button onclick="divide()">Calcular</button>
-        <label for="output3">Output:</label>
-        <input type="text" id="output3" name="output" readonly>
+        <br>
+        <button id="input3" value="/" onclick=operacion()>/</button>
+        <button id="input3" value="pot" onclick=operacion()>Pot</button>
+        <button id="input3" value="log" onclick=operacion()>Log</button>
     </div>
+
     <div>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1" name="input1">
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2" name="input2">
-        <button onclick="resta()">Calcular</button>
-        <label for="output4">Output:</label>
-        <input type="text" id="output4" name="output" readonly>
+        <br>
+        <button onclick="conversor()">Es Bin</button>
+        <button onclick="conversor()">Es Dec</button>
+        <button onclick="conversor()">Es Hex</button>
     </div>
-   
+
 </body>
+
 </html>

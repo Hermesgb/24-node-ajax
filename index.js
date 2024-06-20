@@ -4,43 +4,32 @@ const port = 3000
 
 calculadoraBackend.use(express.static('static/front'))
 
-calculadoraBackend.get("/hola", (req, res) =>{
-    res.send("Hola Calculadora")
-})
+const operacion = (req, res) => {
+    var sumando1 = Number(req.query.parametro1)
+    var sumando2 = Number(req.query.parametro2)
+    var operacionElegida = Number(req.query.parametro3)
+    var resultado
+    
+    if(operacionElegida = "+"){
+        resultado = sumando1 + sumando2
+    }else if(operacionElegida == "-"){
+        resultado = sumando1 - sumando2
+    }else if(operacionElegida == "*"){
+        resultado = sumando1 * sumando2
+    }else if(operacionElegida = 1){
+        resultado = sumando1 / sumando2
+    }else if(operacionElegida == "pot"){
+        resultado = Math.pow(sumando1, sumando2)
+    }else if(operacionElegida == "log"){
+        resultado = Math.log(sumando1) / Math.log(sumando2)
+    }
+    
+    res.send(`${resultado}`)
+    console.log(operacionElegida)
 
-const suma = (req, res) => {
-    var sumando1 = Number(req.query.parametro1)
-    var sumando2 = Number(req.query.parametro2)
-    var resultado = sumando1 + sumando2
-    
-    res.send(`${resultado}`)
-}
-const multiplica = (req, res) => {
-    var sumando1 = Number(req.query.parametro1)
-    var sumando2 = Number(req.query.parametro2)
-    var resultado = sumando1 * sumando2
-    
-    res.send(`${resultado}`)
-}
-const divide = (req, res) => {
-    var sumando1 = Number(req.query.parametro1)
-    var sumando2 = Number(req.query.parametro2)
-    var resultado = sumando1 / sumando2
-    
-    res.send(`${resultado}`)
-}
-const resta = (req, res) => {
-    var sumando1 = Number(req.query.parametro1)
-    var sumando2 = Number(req.query.parametro2)
-    var resultado = sumando1 - sumando2
-    
-    res.send(`${resultado}`)
 }
 
-calculadoraBackend.get("/suma", suma)
-calculadoraBackend.get("/multiplica", multiplica)
-calculadoraBackend.get("/divide", divide)
-calculadoraBackend.get("/resta", resta)
+calculadoraBackend.get("/operacion", operacion)
 
 calculadoraBackend.listen(port, () => {
     console.log(`Calculadora escuchando en http://localhost:${port}`)

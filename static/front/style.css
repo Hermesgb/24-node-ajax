@@ -1,0 +1,4 @@
+.flex-boton{
+    display: flex;
+    flex-direction: row;
+}
