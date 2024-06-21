@@ -13,10 +13,15 @@ const suma = (req, res) => {
     var sumando2 = Number(req.query.parametro2)
     var resultado = sumando1 + sumando2
     
-    res.send(`SUMA: ${sumando1} + ${sumando2} = ${resultado}`)
+    res.send(`${resultado}`)
 }
 
-calculadoraBackend.get("/calculo", suma)
+const resta = (req, res) => {
+    res.send(`${Number(req.query.parametro1) - Number(req.query.parametro2)}`)
+}
+
+calculadoraBackend.get("/suma", suma)
+calculadoraBackend.get("/resta", resta)
 
 calculadoraBackend.listen(port, () => {
     console.log(`Calculadora escuchando en http://localhost:${port}`)
