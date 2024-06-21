@@ -2,7 +2,8 @@ const express = require("express")
 const calculadoraBackend = express()
 const port = 3000
 
-calculadoraBackend.use(express.static('static/front'))
+calculadoraBackend.use(express.static('static/html'))
+calculadoraBackend.use(express.static('static/js'))
 
 calculadoraBackend.get("/hola", (req, res) =>{
     res.send("Hola Calculadora")
